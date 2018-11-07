@@ -86,10 +86,6 @@ $(document).ready(function () {
       }
     }
 
-    //let time = new Date(timePosted)
-
-    console.log(hoursAgo)
-    // let createdAt = new Date(tweet.created_at)
     let html = `
       <header class="tweet-header">
         <img src=${tweet.user.avatars.small} />
@@ -115,5 +111,24 @@ $(document).ready(function () {
     }
   }
   renderTweets(data)
+
+  $(function() {
+    let $tweetSubmit = $("#tweet-form")
+    $tweetSubmit.on('submit', function (event) {
+      event.preventDefault()
+      console.log('Button Clicked, performing ajax call...')
+      let dataRequest = $("#tweet-form").serialize()
+      console.log(dataRequest)
+      $.ajax('/tweets', {
+        method: 'POST',
+        data: dataRequest
+      })
+      .then(function () {
+
+        console.log('Done!')
+      })
+    })
+  })
 })
+
 
