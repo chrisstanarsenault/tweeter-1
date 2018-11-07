@@ -105,30 +105,54 @@ $(document).ready(function () {
   }
 
   function renderTweets(tweets) {
+    $('.tweet-container').empty()
     for (let index of tweets) {
       let $newTweet = createTweetElement(index)
-      $('.tweet-container').append($newTweet)
+      $('.tweet-container').prepend($newTweet) //prepend aligns tweets from newest to oldest
     }
   }
-  renderTweets(data)
+
 
   $(function() {
+
     let $tweetSubmit = $("#tweet-form")
     $tweetSubmit.on('submit', function (event) {
       event.preventDefault()
       console.log('Button Clicked, performing ajax call...')
+      let $textArea = $("textarea").val().length
+      let maxCounter = parseInt($(".counter").text(), 10)
+      if ($textArea > maxCounter) {
+        return alert("You've used too many characters")
+      } else if (!$("textarea").val()) {
+        return alert("You need to enter something!")
+      } else {
       let dataRequest = $("#tweet-form").serialize()
-      console.log(dataRequest)
       $.ajax('/tweets', {
         method: 'POST',
         data: dataRequest
       })
       .then(function () {
-
+        $('textarea').val("") //clear textfield after every submit
         console.log('Done!')
+        loadTweets()
       })
+    }
+
     })
   })
+
+  let loadTweets = () => {
+      $.ajax('/tweets', {
+        method: 'GET'
+      })
+      .then(function (json) {
+        renderTweets(json)
+      })
+    }
+loadTweets()
+
+
+// End of ready function //
 })
 
 
