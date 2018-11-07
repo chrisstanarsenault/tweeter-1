@@ -79,7 +79,5 @@ $(document).ready(function () {
       $('.tweet-container').append($newTweet)
     }
   }
-
-
   renderTweets(data)
 })
