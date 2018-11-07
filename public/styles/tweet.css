@@ -1,4 +1,4 @@
-#tweet-container {
+.tweet-container {
   border: 1px solid lightgray;
   border-radius: 10px;
   margin: 2em;
@@ -6,15 +6,15 @@
   width: 86%;
 }
 
-#tweet-container:hover {
+.tweet-container:hover {
   border: 1px solid darkgray;
 }
 
-#tweet-container:hover .tweet-header {
+.tweet-container:hover .tweet-header {
   opacity: 1;
 }
 
-#tweet-container:hover .tweet-footer img{
+.tweet-container:hover .tweet-footer img{
   display:block;
 }
 
@@ -51,6 +51,7 @@
 
 .tweet-header .title-name {
   vertical-align: top;
+  width: 50%;
 }
 
 .tweet-footer {
