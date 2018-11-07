@@ -55,6 +55,41 @@ $(document).ready(function () {
 
   function createTweetElement(tweet) {
     let $tweet = $("<article>").addClass("tweet");
+    let currentDate = new Date().getTime()
+    let timePosted = tweet.created_at;
+    let timeLapse = currentDate - timePosted;
+    let secondsAgo = Math.round(timeLapse / 1000)
+    let minutesAgo = Math.round(secondsAgo / 60)
+    let hoursAgo = Math.round(minutesAgo / 60)
+    let daysAgo = Math.round(hoursAgo / 24)
+    let weeksAgo = Math.round(daysAgo / 7)
+    let monthsAgo = Math.round(weeksAgo / 4.345)
+    let yearsAgo = Math.round(monthsAgo / 12)
+
+    let timeAgo = () => {
+      if (timePosted >= 3.17e-11) {
+        return yearsAgo.toString() + " years ago"
+      } else if (timePosted >= 3.8052e-10 && timePosted < 3.17e-11) {
+        return monthsAgo.toString() + " months ago"
+      } else if (timePosted >= 1.65345181878e-9 && timePosted < 3.8052e-10) {
+        return weeksAgo.toString() + " weeks ago"
+      }else if (timePosted >= 1.157416273146000029e-8 && timePosted < 1.65345181878e-9) {
+        return daysAgo.toString() + " days ago"
+      } else if (timePosted >= 2.777799055550400069e-7 && timePosted < 1.157416273146000029e-8) {
+        return hoursAgo.toString() + " hours ago"
+      } else if (timePosted >= 1.666679433330240084e-5 && timePosted < 2.777799055550400069e-7) {
+        return minutesAgo.toString() + " minutes ago"
+      } else if (timePosted >= 0.0010000076599981440502 && timePosted < 1.666679433330240084e-5) {
+        return secondsAgo.toString() + " seconds ago"
+      } else {
+        return "Now"
+      }
+    }
+
+    //let time = new Date(timePosted)
+
+    console.log(hoursAgo)
+    // let createdAt = new Date(tweet.created_at)
     let html = `
       <header class="tweet-header">
         <img src=${tweet.user.avatars.small} />
@@ -63,7 +98,7 @@ $(document).ready(function () {
       </header>
       <div class="tweet-body">${tweet.content.text}</div>
       <footer class="tweet-footer">
-        <p class="post-time">${tweet.created_at}</p>
+        <p class="post-time">${timeAgo()}</p>
         <img src="../images/bird.png">
         <img src="../images/bird.png">
         <img src="../images/bird.png">
@@ -81,3 +116,4 @@ $(document).ready(function () {
   }
   renderTweets(data)
 })
+
