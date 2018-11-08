@@ -122,12 +122,15 @@ $(document).ready(function () {
       event.preventDefault()
       console.log('Button Clicked, performing ajax call...')
       let $textArea = $("textarea").val().length
-      let maxCounter = parseInt($(".counter").text(), 10)
-      if ($textArea > maxCounter) {
-        return alert("You've used too many characters")
+      let maxCounter = parseInt($(".counter").text(), 10) //check later why counter isnt working
+      if ($textArea > 140) {
+        $(".error").html('Tweet tweet, shorten your message!').slideToggle('slow')
       } else if (!$("textarea").val()) {
-        return alert("You need to enter something!")
+        $(".error").html("Tweet tweet, you can't tweet without... well... a tweet!").slideToggle('slow')
       } else {
+        if ($(".error").is(":visible")) {
+          $(".error").slideToggle("slow");
+        }
       let dataRequest = $tweetSubmit.serialize()
       $.ajax('/tweets', {
         method: 'POST',

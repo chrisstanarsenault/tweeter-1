@@ -22,3 +22,13 @@
 .counter {
   float: right;
 }
+
+.error {
+  border:2px solid #ff9999;
+  padding: 2em;
+  border-radius: 10px;
+  background: #ffcccc;
+  margin-right: 2em;
+  margin-left: 2em;
+  display: none;
+}
