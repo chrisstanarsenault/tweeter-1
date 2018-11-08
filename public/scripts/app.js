@@ -85,14 +85,17 @@ $(document).ready(function () {
         return "Now"
       }
     }
+    //let tweetContent = $(".tweet").text(tweet.content.text)
+    //let safeHTML = $(".tweet").append(document.createTextNode(tweet.content.text))
 
+    //!!XSS needs fixing still!!
     let html = `
       <header class="tweet-header">
         <img src=${tweet.user.avatars.small} />
-        <p class="title-name">${tweet.user.name}</>
-        <p class="title-tweet-handle">${tweet.user.handle}</span>
+        <p class="title-name">${tweet.user.name}</p>
+        <p class="title-tweet-handle">${tweet.user.handle}</p>
       </header>
-      <div class="tweet-body">${tweet.content.text}</div>
+      <div class = "tweet-body">${tweet.content.text}</div>
       <footer class="tweet-footer">
         <p class="post-time">${timeAgo()}</p>
         <img src="../images/bird.png">
@@ -103,7 +106,7 @@ $(document).ready(function () {
     $tweet = $tweet.append(html);
     return $tweet
   }
-
+//document.createTextNode(tweet.content.text)
   function renderTweets(tweets) {
     $('.tweet-container').empty()
     for (let index of tweets) {
@@ -114,7 +117,6 @@ $(document).ready(function () {
 
 
   $(function() {
-
     let $tweetSubmit = $("#tweet-form")
     $tweetSubmit.on('submit', function (event) {
       event.preventDefault()
@@ -126,7 +128,7 @@ $(document).ready(function () {
       } else if (!$("textarea").val()) {
         return alert("You need to enter something!")
       } else {
-      let dataRequest = $("#tweet-form").serialize()
+      let dataRequest = $tweetSubmit.serialize()
       $.ajax('/tweets', {
         method: 'POST',
         data: dataRequest
@@ -135,9 +137,8 @@ $(document).ready(function () {
         $('textarea').val("") //clear textfield after every submit
         console.log('Done!')
         loadTweets()
-      })
-    }
-
+        })
+      }
     })
   })
 
@@ -149,8 +150,16 @@ $(document).ready(function () {
         renderTweets(json)
       })
     }
-loadTweets()
+  loadTweets()
 
+    $(".compose").click(function() {
+      $(".new-tweet").slideToggle("fast", function() {
+        if ($(this).is(':visible'))
+        {
+          $("textarea").focus()
+        }
+      })
+    })
 
 // End of ready function //
 })

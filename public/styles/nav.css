@@ -24,3 +24,34 @@
   line-height: 80px;
   padding-left: 10px;
 }
+
+#nav-bar .compose img {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+
+}
+
+#nav-bar .compose {
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: white;
+  width: 10%;
+  height: 75%;
+  float: right;
+  margin: 10px 150px 10px 0;
+  text-align: center;
+  opacity: .60;
+}
+
+#nav-bar .compose p {
+  display: inline-block;
+  color: black;
+  margin-left: 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+#nav-bar .compose:hover {
+  opacity: 1;
+}
