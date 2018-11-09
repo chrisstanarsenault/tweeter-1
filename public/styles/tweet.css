@@ -14,7 +14,7 @@
   opacity: 1;
 }
 
-.tweet:hover .tweet-footer img{
+.tweet:hover .tweet-footer i{
   display:block;
 }
 
@@ -37,6 +37,9 @@
 .tweet-body {
   padding: 2rem;
   font-size: 1.2rem;
+  width: 100%;
+  overflow: auto;
+  word-wrap: break-word;
 }
 .title-name, .title-tweet-handle {
   display: inline-block;
@@ -51,7 +54,7 @@
 
 .tweet-header .title-name {
   vertical-align: top;
-  width: 50%;
+  width: 45%;
 }
 
 .tweet-footer {
@@ -64,7 +67,7 @@
   margin: 0;
 }
 
-.tweet-footer img {
+.tweet-footer i {
   height: 20px;
   width: 20px;
   vertical-align: middle;

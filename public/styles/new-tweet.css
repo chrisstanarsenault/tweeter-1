@@ -3,7 +3,7 @@
   border-radius: 10px;
   padding: 0 2em 1em 2em;
   background: #e8e8e8;
-  margin: 2em;
+  margin: 2em 2em 0 2em;
   display: inline-block;
   width: 86%;
   display: none;
@@ -25,11 +25,12 @@
 }
 
 .error {
-  border:2px solid #ff9999;
+  border:5px solid #ff9999;
   padding: 2em;
   border-radius: 10px;
   background: #ffcccc;
   margin-right: 2em;
   margin-left: 2em;
   display: none;
+  font-weight: bold;
 }

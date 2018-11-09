@@ -29,7 +29,6 @@
   display: inline-block;
   width: 20px;
   height: 20px;
-
 }
 
 #nav-bar .compose {
@@ -46,12 +45,24 @@
 
 #nav-bar .compose p {
   display: inline-block;
-  color: black;
+  color: green;
   margin-left: 5px;
   font-size: 1.2rem;
   font-weight: bold;
 }
 
+#nav-bar .compose i {
+  color: green;
+}
+
 #nav-bar .compose:hover {
   opacity: 1;
+}
+
+#nav-bar .compose:hover p {
+  color: black;
+}
+
+#nav-bar .compose:hover i {
+  color: black;
 }

@@ -1,6 +1,6 @@
 $(document).ready(function() {
   let maxCounter = parseInt($(".counter").text(), 10)
-  $("textarea").keyup(function() {
+  $("textarea").on('input', function() {
     let $textArea = $(this)
     let myLength = $textArea.val().length;
     let reduceCounter = maxCounter - myLength;

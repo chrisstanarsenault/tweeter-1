@@ -4,6 +4,10 @@
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
 
+    <!-- Font-Awesome CDN -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+  crossorigin="anonymous">
+
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,700,700i" rel="stylesheet">
@@ -14,6 +18,7 @@
     <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
@@ -26,7 +31,9 @@
     <nav id="nav-bar">
       <img class="logo" src="/images/bird.png">
       <span class="header">Tweeter</span>
-      <span class="compose"><img class="compose-image" src="images/bird.png" /><p>Compose</p></span>
+<span class="compose">
+  <i class="far fa-edit"></i><p>Compose</p>
+</span>
     </nav>
 
     <!-- Page-specific (main) content here -->
@@ -45,20 +52,7 @@
       </section>
 
       <section class="tweet-container">
-        <!-- <article class="tweet">
-          <header class="tweet-header">
-            <img src="images/test-avatar.png" />
-            <p class="title-name">Chris</p>
-            <p class="title-tweet-handle">@MrArsenault</p>
-          </header>
-          <div class="tweet-body">Tweet tweet tweet Tweet tweet tweetTweet tweet tweetTweet tweet tweetTweet tweet tweet</div>
-          <footer class="tweet-footer">
-            <p class="post-time">20 years ago</p>
-            <img src="images/bird.png" />
-            <img src="images/bird.png" />
-            <img src="images/bird.png" />
-          </footer>
-        </article> -->
+
       </section>
     </main>
 <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
