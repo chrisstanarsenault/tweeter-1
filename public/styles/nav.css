@@ -1,3 +1,5 @@
+/* All CSS relating to the nav-bar */
+
 #nav-bar {
   background-color: #00a087;
   color: #e8fdff;
@@ -23,6 +25,8 @@
   font-size: 2rem;
   line-height: 80px;
   padding-left: 10px;
+  font-weight: bold;
+  letter-spacing: 1px
 }
 
 #nav-bar .compose img {
@@ -57,6 +61,7 @@
 
 #nav-bar .compose:hover {
   opacity: 1;
+  cursor: pointer;
 }
 
 #nav-bar .compose:hover p {
@@ -66,3 +71,4 @@
 #nav-bar .compose:hover i {
   color: black;
 }
+

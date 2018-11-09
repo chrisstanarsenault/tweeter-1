@@ -1,25 +1,14 @@
 /*
  * Client-side JS logic goes here
- * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
 $(document).ready(function () {
 
+  // This function
   function createTweetElement(tweet) {
     let $tweet = $('<article>').addClass('tweet');
-    let currentDate = new Date().getTime()
-    let timePosted = tweet.created_at;
-    let timeLapse = currentDate - timePosted;
-    let secondsAgo = Math.round(timeLapse / 1000)
-    let minutesAgo = Math.round(secondsAgo / 60)
-    let hoursAgo = Math.round(minutesAgo / 60)
-    let daysAgo = Math.round(hoursAgo / 24)
-    let weeksAgo = Math.round(daysAgo / 7)
-    let monthsAgo = Math.round(weeksAgo / 4.345)
-    let yearsAgo = Math.round(monthsAgo / 12)
-    let datePosted = moment(tweet.created_at).fromNow()
-    //let datePosted = moment(tweet.create_on).format("dddd, MMMM Do YYYY")
+    let datePosted = moment(tweet.created_at).fromNow();
 
     // this function helps encode text so javascript (XSS) scripts can not be implemented within textfields
     // and cause not so fun bugs in our app
@@ -30,6 +19,7 @@ $(document).ready(function () {
     }
     const safeHTML = `${escape(tweet.content.text)}`;
 
+    // html template that is being used for each tweet created with values being passed in from db
     let html = `
       <header class="tweet-header">
         <img src=${tweet.user.avatars.small} />
@@ -44,29 +34,31 @@ $(document).ready(function () {
         <i class="far fa-flag"></i>
       </footer>
       `;
-      $('header').append()
+      $('header').append();
     $tweet = $tweet.append(html);
-    return $tweet
+    return $tweet;
   }
 
   function renderTweets(tweets) {
-    $('.tweet-container').empty()
+    $('.tweet-container').empty();
     for (let index of tweets) {
-      let $newTweet = createTweetElement(index)
-      $('.tweet-container').prepend($newTweet) //prepend aligns tweets from newest to oldest
+      let $newTweet = createTweetElement(index);
+      $('.tweet-container').prepend($newTweet); //prepend aligns tweets from newest to oldest
     }
   }
 
+  // function for POSTing tweets after running through a validation checker to make sure tweet stays under
+  // 140 characters, and that textarea is not empty,
   $(function() {
-    let $tweetSubmit = $('#tweet-form')
+    let $tweetSubmit = $('#tweet-form');
     $tweetSubmit.on('submit', function (event) {
-      event.preventDefault()
+      event.preventDefault();
       console.log('Button Clicked, performing ajax call...')
       let $textArea = $('textarea').val().length;
       if ($textArea > 140) {
-        $('.error').html('Tweet tweet, shorten your message!').slideToggle('slow')
+        $('.error').html('Tweet tweet, shorten your message!').slideToggle('slow');
       } else if (!$('textarea').val()) {
-        $('.error').html("Tweet tweet, you can't tweet without... well... a tweet!").slideToggle('slow')
+        $('.error').html("Tweet tweet, you can't tweet without... well... a tweet!").slideToggle('slow');
       } else {
         if ($('.error').is(':visible')) {
           $('.error').slideToggle('slow');
@@ -76,14 +68,10 @@ $(document).ready(function () {
       $.ajax('/tweets', {
         method: 'POST',
         data: dataRequest,
-        success: function(data) {
-          renderTweets(data);
-        }
       })
       .then(function () {
         $('textarea').val('') //clear textfield after every submit
-        console.log('Done!')
-        $('.counter').text(140)
+        $('.counter').text(140) //reset the counter back to 140
         loadTweets()
         })
       }
@@ -101,6 +89,8 @@ $(document).ready(function () {
 
     loadTweets()
 
+
+  //open/closes the new tweet container, and autofocuses into text field when opened
   $('.compose').click(function() {
     $('.new-tweet').slideToggle("fast", function() {
       if ($(this).is(':visible'))
