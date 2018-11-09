@@ -70,13 +70,13 @@ $(document).ready(function () {
         data: dataRequest,
       })
       .then(function () {
-        $('textarea').val('') //clear textfield after every submit
-        $('.counter').text(140) //reset the counter back to 140
-        loadTweets()
-        })
-      }
-    })
-  })
+        $('textarea').val(''); //clear textfield after every submit
+        $('.counter').text(140); //reset the counter back to 140
+        loadTweets();
+        });
+      };
+    });
+  });
 
   let loadTweets = () => {
       $.ajax('/tweets', {
@@ -84,8 +84,8 @@ $(document).ready(function () {
       })
       .then(function (json) {
         renderTweets(json)
-      })
-    }
+      });
+    };
 
     loadTweets()
 
@@ -95,7 +95,7 @@ $(document).ready(function () {
     $('.new-tweet').slideToggle("fast", function() {
       if ($(this).is(':visible'))
       {
-        $('textarea').focus()
+        $('textarea').focus();
       }
     })
   })

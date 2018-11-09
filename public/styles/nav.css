@@ -59,6 +59,12 @@
   color: green;
 }
 
+#nav-bar .compose {
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+  -moz-box-shadow: 0 10px 6px -6px #777;
+  box-shadow: 0 10px 6px -6px #777;
+}
+
 #nav-bar .compose:hover {
   opacity: 1;
   cursor: pointer;
