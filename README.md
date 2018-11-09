@@ -19,12 +19,16 @@ Tweeter is a simple, single-page Twitter clone made up to build up and practice 
 - MongoDB 2.2.36
 
 ## Screenshots
+
   ###The Almighty Compose Box
 !["The almighty Compose box"](https://github.com/chrisstanarsenault/tweeter-1/blob/master/docs/Tweeter-SS-4.png?raw=true)
+
   ###Tweetz without activated tweeting area, click that Compose button!
 !["Tweetz without activated tweeting area, click that Compose button!"](https://github.com/chrisstanarsenault/tweeter-1/blob/master/docs/Tweeter-SS-1.png?raw=true)
+
   ###Tweeting area and a highlighted tweet
 !["Tweeting area and a highlighted tweet"](https://github.com/chrisstanarsenault/tweeter-1/blob/master/docs/Tweeter-SS-3.png?raw=true)
+
   ###Uh oh, error time!
 !["Uh oh, error time!"](https://github.com/chrisstanarsenault/tweeter-1/blob/master/docs/TweeterError-SS-2.png?raw=true)
 
