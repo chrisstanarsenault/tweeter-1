@@ -6,6 +6,7 @@
   margin: 2em;
   display: inline-block;
   width: 86%;
+  display: none;
 }
 
 .new-tweet h2 {

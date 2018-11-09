@@ -1,20 +1,20 @@
 .tweet{
   border: 1px solid lightgray;
   border-radius: 10px;
-  margin: 2em;
+  margin: 1em 2em;
   display: inline-block;
   width: 86%;
 }
 
-.tweet-container:hover {
+.tweet:hover {
   border: 1px solid darkgray;
 }
 
-.tweet-container:hover .tweet-header {
+.tweet:hover .tweet-header {
   opacity: 1;
 }
 
-.tweet-container:hover .tweet-footer img{
+.tweet:hover .tweet-footer img{
   display:block;
 }
 
