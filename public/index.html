@@ -2,11 +2,11 @@
 <html lang="en">
   <head>
     <!-- Meta Information -->
-    <title>Tweeter - Home Page</title>
+    <title>Tweeter</title>
 
     <!-- Font-Awesome CDN -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
-  crossorigin="anonymous">
+    crossorigin="anonymous">
 
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
@@ -22,7 +22,6 @@
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
-    <!-- <script type="text/javascript" src="/scripts/composer-char-counter.js"></script> -->
   </head>
 
   <body>
@@ -31,9 +30,11 @@
     <nav id="nav-bar">
       <img class="logo" src="/images/bird.png">
       <span class="header">Tweeter</span>
-<span class="compose">
-  <i class="far fa-edit"></i><p>Compose</p>
-</span>
+
+      <!-- compose box -->
+      <span class="compose">
+        <i class="far fa-edit"></i><p>Compose</p>
+      </span>
     </nav>
 
     <!-- Page-specific (main) content here -->
@@ -47,13 +48,15 @@
         </form>
       </section>
 
+      <!-- Error container -->
       <section>
         <div class="error">Error Will Robinson</div>
       </section>
 
+      <!-- Tweet container -->
       <section class="tweet-container">
-
       </section>
+
     </main>
 <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </body>

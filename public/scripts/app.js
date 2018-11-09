@@ -18,7 +18,8 @@ $(document).ready(function () {
     let weeksAgo = Math.round(daysAgo / 7)
     let monthsAgo = Math.round(weeksAgo / 4.345)
     let yearsAgo = Math.round(monthsAgo / 12)
-    let datePosted = moment().format("dddd, MMMM Do YYYY")
+    let datePosted = moment(tweet.created_at).fromNow()
+    //let datePosted = moment(tweet.create_on).format("dddd, MMMM Do YYYY")
 
     // this function helps encode text so javascript (XSS) scripts can not be implemented within textfields
     // and cause not so fun bugs in our app
@@ -61,8 +62,7 @@ $(document).ready(function () {
     $tweetSubmit.on('submit', function (event) {
       event.preventDefault()
       console.log('Button Clicked, performing ajax call...')
-      let $textArea = $('textarea').val().length
-      let maxCounter = parseInt($(".counter").text(), 10) //check later why counter isnt working
+      let $textArea = $('textarea').val().length;
       if ($textArea > 140) {
         $('.error').html('Tweet tweet, shorten your message!').slideToggle('slow')
       } else if (!$('textarea').val()) {
